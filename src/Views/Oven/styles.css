@@ -1,0 +1,21 @@
+.oven {
+    padding: 5px;
+    height: 100px;
+    width: 200px;
+    background: rgba(230, 83, 78, 0.3);
+    border: 1px solid black;
+    border-bottom: none;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+}
+
+.heating-element {
+    height: 10px;
+    background: red;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.temperature {
+    text-align: center;
+}
