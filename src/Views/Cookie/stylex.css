@@ -1,0 +1,71 @@
+.cookie {
+    width: 25px;
+    height: 25px;
+    background-color: #C4A484;
+    border: 1px solid brown;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.produce {
+    bottom: 16px;
+    animation: produceCookie 2s linear forwards;
+}
+
+.stamped {
+    animation: stampCookie 2s linear forwards;
+}
+
+.should-be-baked {
+    animation: bakeCookie 2s linear forwards;
+}
+
+.cookie.pause-animation {
+    animation-play-state: paused;
+}
+
+@keyframes produceCookie {
+    0% {
+        transform: translate(0, -20px);
+    }
+
+    15% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(140px, 0);
+    }
+}
+
+@keyframes stampCookie {
+    0% {
+        transform: translate(140px, 0);
+        height: 20px;
+    }
+
+    100% {
+        transform: translate(360px, 0);
+        height: 20px;
+    }
+}
+
+@keyframes bakeCookie {
+    0% {
+        transform: translate(360px, 0);
+        height: 20px;
+    }
+    99% {
+        transform: translate(580px, 0);
+        background-color: brown;
+        border-color: darkred;
+        height: 20px;
+    }
+    100% {
+        transform: translate(580px, 0);
+        background-color: brown;
+        border-color: darkred;
+        height: 20px;
+        display: none;
+    }
+}
