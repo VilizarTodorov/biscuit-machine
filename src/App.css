@@ -1,0 +1,32 @@
+.main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(159, 221, 174);
+}
+.main-container {
+    background-color: peachpuff;
+    padding: 12px;
+    width: 600px;
+    border-radius: 20px;
+    border: 2px solid peru;
+}
+.container {
+    padding-top: 12px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+.secondary-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.title {
+    color: brown;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+}
