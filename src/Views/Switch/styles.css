@@ -1,0 +1,28 @@
+.switch-container {
+    width: 230px;
+}
+
+.switch-title {
+    text-align: center;
+    text-transform: capitalize;
+    color: brown;
+    font-weight: bold;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.start-btn {
+    background-color: green;
+}
+
+.pause-btn {
+    background-color: yellow;
+}
+
+.stop-btn {
+    background-color: red;
+}
