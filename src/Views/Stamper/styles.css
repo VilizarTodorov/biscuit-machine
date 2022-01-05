@@ -1,0 +1,51 @@
+.stamper {
+    display: flex;
+    margin-left: 150px;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+}
+
+.stamper-body,
+.connecting-rod,
+.stamp {
+    border: 1px solid black;
+}
+
+.stamper-body {
+    width: 44px;
+    height: 56px;
+    background: gray;
+    border-radius: 14px;
+}
+
+.connecting-rod {
+    background: darkgray;
+    height: 10px;
+    width: 10px;
+    border-top: none;
+    border-bottom: none;
+    animation: stamp 2s linear infinite;
+}
+
+.connecting-rod.pause-animation {
+    animation-play-state: paused;
+}
+
+.stamp {
+    width: 44px;
+    height: 10px;
+    background: gray;
+}
+
+@keyframes stamp {
+    0% {
+        height: 10px;
+    }
+    15% {
+        height: 30px;
+    }
+    30% {
+        height: 10px;
+    }
+}
