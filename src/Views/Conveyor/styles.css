@@ -1,0 +1,21 @@
+.conveyor {
+    width: fit-content;
+    margin-top: -20px;
+    position: relative;
+}
+.conveyor-line {
+    width: fit-content;
+}
+.conveyor-line svg {
+    animation: conveyorLine 6.5s linear infinite;
+}
+
+.conveyor-line.pause-animation svg {
+    animation-play-state: paused;
+}
+
+@keyframes conveyorLine {
+    to {
+        stroke-dashoffset: -400;
+    }
+}
