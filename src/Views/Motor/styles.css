@@ -1,0 +1,42 @@
+.motor {
+    border-radius: 50%;
+    border: 2px solid black;
+    animation: rotateMotor 2s linear infinite;
+}
+
+.motor.pause-animation {
+  animation-play-state: paused;
+}
+
+.motor.inner {
+    width: 30px;
+    height: 30px;
+    background-color: lightblue;
+}
+
+.motor.outer {
+    width: 60px;
+    height: 60px;
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.motor-pointer {
+    height: 30px;
+    width: 2px;
+    background-color: black;
+    position: absolute;
+    top: 0;
+}
+
+@keyframes rotateMotor {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
