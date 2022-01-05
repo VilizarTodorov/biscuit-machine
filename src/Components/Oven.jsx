@@ -21,7 +21,7 @@ import {
 } from '../Redux/selectors';
 import OvenView from '../Views/Oven';
 import useCoolDownOven from '../Hooks/useCoolDownOven';
-import { getIsMachineOff } from '../utils';
+import { getIsHeatingElementOn, getIsMachineOff } from '../utils';
 
 const Oven = () => {
     const temperature = useSelector(temperatureSelector);
@@ -34,6 +34,8 @@ const Oven = () => {
     const heatingElementMode = useSelector(heatingElementModeSelector);
     const isOvenReady = useSelector(isOvenReadySelector);
 
+    const isHeatingElementOn = getIsHeatingElementOn(heatingElementMode);
+
     // a hook that heats up the oven until it reaches the desired temperature and sets the oven to ready
     useHeatUpOven(MAX_TEMPERATURE, temperature, machineMode, isOvenReady, incrementTemperature, ovenIsReady);
 
@@ -41,15 +43,15 @@ const Oven = () => {
     useMaintainTemperature(
         MIN_TEMPERATURE,
         MAX_TEMPERATURE,
-        machineMode,
         temperature,
-        heatingElementMode,
         turnOffHeatingElement,
         turnOnHeatingElement,
         incrementTemperature,
         decrementTemperature,
         isOvenReady,
-        hasProcessStarted
+        hasProcessStarted,
+        isMachineOff,
+        isHeatingElementOn
     );
 
     // cool down oven after the process has been stopped
@@ -63,7 +65,7 @@ const Oven = () => {
         heatingElementMode,
         turnOffHeatingElement,
         MIN_TEMPERATURE,
-        isOvenReady,
+        isOvenReady
     );
 
     return <OvenView temperature={temperature}></OvenView>;

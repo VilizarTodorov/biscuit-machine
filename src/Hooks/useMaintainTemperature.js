@@ -1,41 +1,40 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { ONE_SECOND } from '../constants/generalConstants';
-import { MACHINE_MODES, OVEN_HEATING_ELEMENT_MODE } from '../constants/modes';
 
 const useMaintainTemperature = (
     minimumTemperature,
     maximumTemperature,
-    machineMode,
     temperature,
-    heatingElementMode,
     turnOffHeatingElement,
     turnOnHeatingElement,
     incrementTemperature,
     decrementTemperature,
     isOvenReady,
-    hasProcessStarted
+    hasProcessStarted,
+    isMachineOff,
+    isHeatingElementOn
 ) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if ((machineMode === MACHINE_MODES.OFF && !hasProcessStarted) || !isOvenReady) {
+        if ((isMachineOff && !hasProcessStarted) || !isOvenReady) {
             return;
         }
 
-        if (temperature >= maximumTemperature && heatingElementMode === OVEN_HEATING_ELEMENT_MODE.ON) {
+        if (temperature >= maximumTemperature && isHeatingElementOn) {
             dispatch(turnOffHeatingElement());
             return;
         }
 
-        if (temperature <= minimumTemperature && heatingElementMode === OVEN_HEATING_ELEMENT_MODE.OFF) {
+        if (temperature <= minimumTemperature && !isHeatingElementOn) {
             dispatch(turnOnHeatingElement());
             return;
         }
 
         let timer;
 
-        if (heatingElementMode === OVEN_HEATING_ELEMENT_MODE.ON) {
+        if (isHeatingElementOn) {
             timer = setTimeout(() => {
                 dispatch(incrementTemperature());
             }, ONE_SECOND);
@@ -48,8 +47,6 @@ const useMaintainTemperature = (
         return () => clearTimeout(timer);
     }, [
         temperature,
-        heatingElementMode,
-        machineMode,
         dispatch,
         minimumTemperature,
         maximumTemperature,
@@ -59,6 +56,8 @@ const useMaintainTemperature = (
         decrementTemperature,
         isOvenReady,
         hasProcessStarted,
+        isMachineOff,
+        isHeatingElementOn
     ]);
 };
 
