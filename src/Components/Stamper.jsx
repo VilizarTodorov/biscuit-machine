@@ -1,14 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import useStampCookie from '../Hooks/useStampCookie';
-import { hasProcessStartedSelector, machineModeSelector, motorPulseSelector } from '../Redux/selectors';
+import { cookiesSelector, hasProcessStartedSelector, machineModeSelector, motorPulseSelector } from '../Redux/selectors';
 import { stampCookie } from '../Redux/slices/machineSlice';
 import { getIsMachinePaused } from '../utils';
 import StamperView from '../Views/Stamper';
 
 const Stamper = () => {
     const motorPulse = useSelector(motorPulseSelector);
-    const cookies = useSelector((state) => state.machine.producedCookies);
+    const cookies = useSelector(cookiesSelector);
     const hasProcessStarted = useSelector(hasProcessStartedSelector);
     const machineMode = useSelector(machineModeSelector);
     const isMachinePaused = getIsMachinePaused(machineMode);

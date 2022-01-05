@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import usePulse from '../Hooks/usePulse';
-import { hasUnprocessedCookiesSelector, isOvenReadySelector, machineModeSelector } from '../Redux/selectors';
+import { hasProcessStartedSelector, hasUnprocessedCookiesSelector, isOvenReadySelector, machineModeSelector } from '../Redux/selectors';
 import { bakeCookie, endProcess, passCookieToOven, startProcess } from '../Redux/slices/machineSlice';
 import { pulse } from '../Redux/slices/motorSlice';
 import { getIsMachineOn, getIsMachinePaused } from '../utils';
@@ -12,7 +12,7 @@ const Motor = () => {
     const machineMode = useSelector(machineModeSelector);
     const isMachineOn = getIsMachineOn(machineMode);
     const isMachinePaused = getIsMachinePaused(machineMode);
-    const hasProcessStarted = useSelector((state) => state.machine.hasProcessStarted);
+    const hasProcessStarted = useSelector(hasProcessStartedSelector);
 
     const hasUnprocessedCookies = useSelector(hasUnprocessedCookiesSelector);
 

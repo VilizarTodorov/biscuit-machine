@@ -14,6 +14,8 @@ import useMaintainTemperature from '../Hooks/useMaintainTemperature';
 import {
     hasProcessStartedSelector,
     hasUnprocessedCookiesSelector,
+    heatingElementModeSelector,
+    isOvenReadySelector,
     machineModeSelector,
     temperatureSelector,
 } from '../Redux/selectors';
@@ -29,8 +31,8 @@ const Oven = () => {
 
     const hasUnprocessedCookies = useSelector(hasUnprocessedCookiesSelector);
 
-    const heatingElementMode = useSelector((state) => state.oven.heatingElementMode);
-    const isOvenReady = useSelector((state) => state.oven.isOvenReady);
+    const heatingElementMode = useSelector(heatingElementModeSelector);
+    const isOvenReady = useSelector(isOvenReadySelector);
 
     // a hook that heats up the oven until it reaches the desired temperature and sets the oven to ready
     useHeatUpOven(MAX_TEMPERATURE, temperature, machineMode, isOvenReady, incrementTemperature, ovenIsReady);

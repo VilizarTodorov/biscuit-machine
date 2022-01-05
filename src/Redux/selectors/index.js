@@ -5,7 +5,8 @@ export const isOvenReadySelector = (state) => state.oven.isOvenReady;
 export const temperatureSelector = (state) => state.oven.temperature;
 export const motorPulseSelector = (state) => state.motor.motorPulse;
 export const hasProcessStartedSelector = (state) => state.machine.hasProcessStarted;
-
+export const totalBakedCookiesSelector = (state) => state.machine.totalBakedCookies;
+export const heatingElementModeSelector = (state) => state.oven.heatingElementMode;
 export const cookiesSelector = (state) => state.machine.producedCookies;
 
 export const hasUnprocessedCookiesSelector = createSelector([cookiesSelector], (cookies) => {
