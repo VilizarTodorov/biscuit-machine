@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as ConveyorSvg } from './conveyor.svg';
+import { ReactComponent as ConveyorSvg } from '../../images/conveyor.svg';
 import './styles.css';
 
 const ConveyorView = ({ isAnimationPaused }) => {

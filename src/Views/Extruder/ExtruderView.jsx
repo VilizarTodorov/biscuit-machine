@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as ExtruderSVG } from './extruder.svg';
+import { ReactComponent as ExtruderSVG } from '../../images/extruder.svg';
 import './styles.css';
 
 const ExtruderView = () => {
